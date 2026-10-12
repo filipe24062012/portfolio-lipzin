@@ -1,10 +1,18 @@
 import React from 'react'
 import { h } from './ui.js'
 import { agentArtState } from '../utils/media.js'
+import { useReducedMotion } from '../hooks/useReducedMotion.js'
 
 export function Hero({ player }) {
   const [art, setArt] = React.useState(() => agentArtState('idle'))
-  return h('section', { className: 'hero', id: 'inicio', 'aria-labelledby': 'hero-title' },
+  const reducedMotion = useReducedMotion()
+  const moveScope = (event) => {
+    if (reducedMotion) return
+    const box = event.currentTarget.getBoundingClientRect()
+    event.currentTarget.style.setProperty('--scope-x', `${((event.clientX - box.left) / box.width - .5) * 18}px`)
+    event.currentTarget.style.setProperty('--scope-y', `${((event.clientY - box.top) / box.height - .5) * 18}px`)
+  }
+  return h('section', { className: 'hero', id: 'inicio', 'aria-labelledby': 'hero-title', onPointerMove: moveScope },
     h('div', { className: 'hero-copy' },
       h('p', { className: 'eyebrow' }, `${player.region} · ${player.rank}`),
       h('h1', { id: 'hero-title' }, player.nickname),
