@@ -23,8 +23,8 @@ export const portfolioData = {
   },
   agents: [
     { name: 'Chamber', role: 'Sentinela', specialty: 'Principal · Precisão e controle de espaço' },
-    { name: 'Jett', role: 'Duelista', specialty: 'Entry · Mobilidade e abertura' },
-    { name: 'Iso', role: 'Duelista', specialty: 'Flex · Duelos e pressão' },
+    { name: 'Jett', role: 'Duelista', specialty: 'Entry · Mobilidade e abertura', demonstrative: true },
+    { name: 'Iso', role: 'Duelista', specialty: 'Flex · Duelos e pressão', demonstrative: true },
   ],
   career: {
     disclaimer: 'Dados demonstrativos',
@@ -52,4 +52,8 @@ export const portfolioData = {
     { label: 'YouTube', handle: '@lipzinplays', href: '#' },
     { label: 'Instagram', handle: '@lipzin.val', href: '#' },
   ],
+  contact: {
+    email: 'lipzin.demo@example.com',
+    demonstrative: true,
+  },
 }

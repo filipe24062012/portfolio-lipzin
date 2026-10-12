@@ -1,10 +1,11 @@
 export function menuState(open, action) {
   const nextOpen = action === 'toggle' ? !open : action === 'navigate' ? false : open
-  return { open: nextOpen, ariaExpanded: String(nextOpen) }
+  return { open: nextOpen, ariaExpanded: String(nextOpen), hiddenFromInteraction: !nextOpen }
 }
 
 export function modalState(state, action) {
-  if (action === 'escape' || action === 'close') {
+  const actionType = typeof action === 'string' ? action : action?.type
+  if (actionType === 'escape' || actionType === 'close' || actionType === 'cancel' || actionType === 'click') {
     return { open: false, highlightId: null, restoreFocus: true }
   }
   return state

@@ -23,4 +23,9 @@ test('renders the complete portfolio story from one content source', () => {
   ]
   assert.ok(demonstrativeAreas.every((area) => /demonstrativo/i.test(area.disclaimer)))
   assert.ok(demonstrativeAreas.filter((area) => area.disclaimer === 'Dados demonstrativos').length >= 3)
+  assert.ok(portfolioData.agents.slice(1).every((agent) => agent.demonstrative === true))
+  assert.deepEqual(portfolioData.contact, {
+    email: 'lipzin.demo@example.com',
+    demonstrative: true,
+  })
 })

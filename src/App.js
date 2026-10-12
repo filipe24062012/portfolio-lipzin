@@ -24,7 +24,7 @@ export default function App() {
       h(Career, { career: portfolioData.career }),
       h(Highlights, { highlights: portfolioData.highlights }),
       h(Testimonial, { testimonial: portfolioData.testimonial }),
-      h(Contact, { socials: portfolioData.socials }),
+      h(Contact, { socials: portfolioData.socials, contact: portfolioData.contact }),
     ),
     h(Footer),
   )

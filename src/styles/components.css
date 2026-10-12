@@ -43,6 +43,7 @@
 .agent-card h3 { margin: 90px 0 7px; font-size: 3.4rem; }
 .agent-card p { color: var(--gold-bright); }
 .agent-card small { color: var(--muted); }
+.card-demo { position: absolute; right: 18px; bottom: 18px; color: #ff8d96; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; }
 .timeline { margin: 34px 0 0; padding: 0; list-style: none; }
 .timeline li { display: grid; grid-template-columns: 100px 1fr; gap: 28px; padding: 28px 0; border-top: 1px solid var(--line); }
 .timeline time { color: var(--gold); font-family: var(--display); font-size: 1.4rem; }
@@ -59,8 +60,9 @@
 .highlight-card button:hover { color: var(--gold-bright); }
 .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
-.modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(3,4,7,.86); backdrop-filter: blur(12px); }
-.highlight-modal { position: relative; width: min(680px, 100%); padding: 40px; border: 1px solid var(--gold); background: #0c1018; box-shadow: 0 30px 100px rgba(0,0,0,.65); }
+.highlight-modal { width: min(680px, calc(100% - 40px)); max-height: calc(100vh - 40px); padding: 0; border: 1px solid var(--gold); color: var(--text); background: #0c1018; box-shadow: 0 30px 100px rgba(0,0,0,.65); }
+.highlight-modal::backdrop { background: rgba(3,4,7,.86); backdrop-filter: blur(12px); }
+.highlight-modal > section { position: relative; padding: 40px; }
 .highlight-modal h2 { margin-bottom: 25px; font-size: clamp(2.8rem, 7vw, 5.2rem); }
 .highlight-modal > p:not(.eyebrow), .highlight-modal small { color: var(--muted); }
 .modal-close { position: absolute; top: 16px; right: 16px; width: 42px; height: 42px; border: 1px solid var(--line); color: var(--text); background: transparent; font-size: 1.8rem; }
@@ -72,6 +74,7 @@
 .testimonial blockquote p { font-family: var(--display); font-size: clamp(2.1rem, 5vw, 4.4rem); font-style: italic; font-weight: 600; line-height: 1.03; text-transform: uppercase; }
 .testimonial blockquote footer { color: var(--gold); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
 .contact .section-heading { margin-inline: auto; }
+.contact-note { margin: 14px 0 0; color: var(--muted); font-size: .7rem; }
 .social-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 54px 0 0; padding: 0; list-style: none; }
 .social-list a { display: grid; gap: 3px; padding: 20px; border-top: 1px solid var(--line); text-align: left; }
 .social-list span, .social-list small { color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
@@ -83,6 +86,7 @@
   .menu-toggle { display: block; position: relative; z-index: 22; }
   .site-header nav { display: block; position: fixed; inset: 0; padding: 100px 28px 30px; background: rgba(8,10,15,.98); transform: translateX(100%); transition: transform .35s var(--ease); }
   .site-header nav.is-open { transform: none; }
+  .site-header nav.is-collapsed { visibility: hidden; pointer-events: none; }
   .site-header nav ul { flex-direction: column; gap: 8px; }
   .site-header nav a { display: block; padding: 10px 0; font-family: var(--display); font-size: 2.4rem; font-weight: 700; }
 }
@@ -93,7 +97,7 @@
   .button { width: 100%; }
   .agent-art { height: 110%; }
   .timeline li { grid-template-columns: 70px 1fr; gap: 14px; }
-  .highlight-modal { padding: 28px 20px 22px; }
+  .highlight-modal > section { padding: 28px 20px 22px; }
   .modal-video { min-height: 200px; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
