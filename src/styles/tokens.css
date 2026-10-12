@@ -1,0 +1,7 @@
+:root {
+  --ink: #080a0f; --ink-soft: #10141d; --panel: rgba(18, 23, 34, .78);
+  --line: rgba(226, 189, 104, .22); --gold: #e2bd68; --gold-bright: #ffe4a0;
+  --blue: #162841; --red: #ff4655; --text: #f3f1ea; --muted: #9ca5b4;
+  --display: 'Barlow Condensed', Impact, sans-serif; --body: Inter, system-ui, sans-serif;
+  --max: 1180px; --ease: cubic-bezier(.2,.75,.25,1);
+}
